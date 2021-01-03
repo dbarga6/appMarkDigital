@@ -6,4 +6,4 @@ from app.base import blueprint
 # ruta de inicio de twitter
 @blueprint.route('/')
 def init():
-    return "Esta es la página de inicio de la aplicación"
+    return render_template("home.html")
