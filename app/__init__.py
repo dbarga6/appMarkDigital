@@ -3,7 +3,6 @@ from importlib import import_module
 from os import path
 
 
-
 """ 
     register_blueprints.- Función que registra las rutas del blueprints
     Parametros de entrada 
