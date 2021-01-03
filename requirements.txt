@@ -1,0 +1,14 @@
+bcrypt
+flask
+flask_migrate
+flask_wtf
+flask_sqlalchemy
+tweepy
+pymongo[srv]
+nltk
+wordcloud
+pandas
+textblob
+sklearn
+snscrape
+plotly
