@@ -1,5 +1,7 @@
-from flask import render_template, request
+from flask import render_template, request,jsonify
 from app.mongodb import blueprint
+from app.mongodb.action.mongoAction import TweetCollection
+import json
 
 
 
@@ -7,3 +9,12 @@ from app.mongodb import blueprint
 @blueprint.route('/mongodb')
 def init_mongodb():
     return "Esta es la página de MongoDB"
+
+
+@blueprint.route('/contarDocumentos')
+def route_count():
+    mongo = TweetCollection()
+    tweetCollection = mongo.getAparcamientoTabla()
+    resultado = mongo.countDocument(tweetCollection)
+    return jsonify(result=resultado)
+   
