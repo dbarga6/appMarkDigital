@@ -4,17 +4,23 @@ from os import path
 
 
 
-
-
-# Registro de rutas por blueprints
+""" 
+    register_blueprints.- Función que registra las rutas del blueprints
+    Parametros de entrada 
+     app
+"""
 def register_blueprints(app):
     for module_name in ('base', 'mongodb','nlp','twitter'):
         module = import_module('app.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
 
-# funcion principal de creación de la app
-def create_app(config):
+"""
+    create_app.-  Función principal para la creación de la app 
+    
+    Parametros de salida 
+     app 
+"""
+def create_app():
     app = Flask(__name__, static_folder='base/static')
-    app.config.from_object(config)
     register_blueprints(app)
     return app
