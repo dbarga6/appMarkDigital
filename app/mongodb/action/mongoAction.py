@@ -1,5 +1,8 @@
 import pymongo
 import os
+import pandas as pd
+import os.path as path
+from datetime import datetime
 
 """
    MongodbAction.- Clase base que conecta con la base de datos de Mongodb y realiza las funciones de inserccion, busqueda
@@ -63,3 +66,41 @@ class TweetCollection(MongodbAction):
     
     def getHistoricoTabla(self):
         return self.database.HistoricoTabla
+
+    def convertir_str_fecha(self, fechaStr):
+
+        return datetime.strptime(fechaStr, '%a %b %d %H:%M:%S %z %Y')
+    
+    def convertir_fecha_str(self, fecha):
+        
+        return  datetime.strftime(fecha, '%d/%m/%Y %H:%M:%S') 
+
+    def obtener_tweets(self):
+       
+        file_tweets = "app/nlp/static/docs/tweets_obtenidos.csv"
+        df_tweets = pd.DataFrame(columns=["id_str",
+                                 "Tweet", "nombre","localizacion", "fecha","favoritos","retweet"])
+        
+        if path.exists(file_tweets):
+           
+             df_tweets = pd.read_csv(file_tweets, parse_dates =["fecha"])
+             df_tweets = df_tweets.drop(df_tweets.columns[[0]], axis='columns')
+
+        else:
+            
+             resultweet = self.findAll(self.getAparcamientoTabla())
+             # recorremos la lista recibida y la almacenamos en el dataFrame
+             for tweet in resultweet:
+                  fecha = self.convertir_str_fecha(tweet["created_at"])
+                                   
+                  resultados = [tweet["id_str"], tweet["full_text"], tweet["user"]["screen_name"],
+                            tweet["user"]["location"], self.convertir_fecha_str(fecha),
+                            tweet["favorite_count"], tweet["retweet_count"]]
+
+                  df_tweets.loc[len(df_tweets)] = resultados
+                  df_tweets.to_csv(file_tweets)
+
+        return df_tweets
+
+
+      

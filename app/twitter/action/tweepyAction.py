@@ -26,7 +26,7 @@ class TweepyAction():
         auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
         auth.set_access_token(self.access_token, self.access_secret)
 
-        api = tweepy.API(auth)
+        api = tweepy.API(auth, wait_on_rate_limit=True)
         return api
 
     """
@@ -35,18 +35,28 @@ class TweepyAction():
                     Estos los cargara en la colección oportuna y obtendrá sus usuarios cargandolos en otra colección.
 
     """
-    def cargar_tweets(self, filtro, maximo):
+    def cargar_tweets(self, filtro, maximo,fecha_hasta):
       
         mongo = TweetCollection()
         tweetCollection = mongo.getAparcamientoTabla()
         userCollection = mongo.getUserTabla()
-        for tweet in tweepy.Cursor(self.api.search,
-                                   q=filtro + ' -filter:retweets',
-                                   lang='es',
-                                   tweet_mode="extended"
-                                   ).items(maximo):
-                                   
-            mongo.insertOne(tweetCollection, tweet._json)
-            mongo.insertOne(userCollection, tweet._json['user'])
+
+        try:
+            for tweet in tweepy.Cursor(self.api.search,
+                                    q=filtro + ' -filter:retweets',
+                                    lang='es',
+                                    tweet_mode="extended",
+                                    until=fecha_hasta
+                                    ).items(maximo):
+                                    
+                mongo.insertOne(tweetCollection, tweet._json)
+                mongo.insertOne(userCollection, tweet._json['user'])
+
+        except tweepy.TweepError as e:  
+                print(e.reason)
+                
+               
+        except StopIteration: #stop iteration when last tweet is reached
+                print("StopIteration")
 
    

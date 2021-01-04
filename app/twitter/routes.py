@@ -28,7 +28,7 @@ def cargar_tweets_tweepy():
 
     if search is not None and maximo is not None:
         tweepy = TweepyAction()
-        tweepy.cargar_tweets(search,int(maximo))
+        tweepy.cargar_tweets(search,int(maximo),fecha_hasta)
         msg ="La Carga ha sido satisfactoria"    
 
     return jsonify(result=msg)
