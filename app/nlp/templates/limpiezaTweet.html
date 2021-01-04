@@ -14,27 +14,26 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Datos iniciales <small> Aparcamiento</small></h2>
+              <h2>Proceso de limpieza <small> Tweets</small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Settings 1</a>
-                    </li>
-                    <li><a href="#">Settings 2</a>
-                    </li>
-                  </ul>
-                </li>
+               
                 <li><a class="close-link"><i class="fa fa-close"></i></a>
                 </li>
               </ul>
               <div class="clearfix"></div>
             </div>
             <div class="x_content">
-          
-               {% include "mostrarTweets.html" ignore missing %}
+              <div id="plotly-tweetLimpio"></div>
+              <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+              <script type="text/javascript">
+                    
+                var graphs = {{table_limpios | safe}};
+                Plotly.plot('plotly-tweetLimpio', graphs, {});
+                    
+        
+            </script>
             </div>
             </div>
             </div>
@@ -46,8 +45,8 @@
 {% block javascripts %}
   {{ super()}}
   <!-- Parsley -->
-  <script src="{{ url_for('static', filename='js/nlp.js') }}"></script>
-  
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 {% endblock javascripts %}
 
 

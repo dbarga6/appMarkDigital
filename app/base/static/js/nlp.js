@@ -1,18 +1,21 @@
 $(function () {
  
-    window.onload = lanzadera2;
-    function lanzadera2(){   
-        print("hola");
+    window.onload = lanzadera;
+    function lanzadera(){   
+       
         cargarTweets();   
     }
+
     function cargarTweets(){
-      alert("hola");
+    
       $.getJSON('/nlp/obtenerTweets',
       {},
       function(data){     
-        $("#plotly-timeseries").text("hecho")     ;
+        var graphs = JSON.parse(data.table_json);
+        Plotly.plot('plotly-timeseries',graphs, {});  
       }
       );
     }
+    
   
   });

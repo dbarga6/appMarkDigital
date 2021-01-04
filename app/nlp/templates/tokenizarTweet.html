@@ -5,7 +5,7 @@
     <div class="">
       <div class="page-title">
         <div class="title_left">
-          <h3><i class="fa fa-twitter"></i>Obtención de Tweets Descargados</h3>
+          <h3><i class="fa fa-twitter"></i>Proceso de Tokenización</h3>
         </div>
   
       </div>
@@ -14,18 +14,26 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Tweets de Base de Datos <small> Aparcamiento</small></h2>
+              <h2>Proceso de Tokenización <small> Tweets</small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
+               
                 <li><a class="close-link"><i class="fa fa-close"></i></a>
                 </li>
               </ul>
               <div class="clearfix"></div>
             </div>
             <div class="x_content">
-              <div id="plotly-timeseries"></div>
-            
+              <div id="plotly-token"></div>
+              <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+              <script type="text/javascript">
+                    
+                var graphs = {{table_token | safe}};
+                Plotly.plot('plotly-token', graphs, {});
+                    
+        
+            </script>
             </div>
             </div>
             </div>
@@ -38,8 +46,7 @@
   {{ super()}}
   <!-- Parsley -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="{{ url_for('static', filename='js/nlp.js') }}"></script>
-  
+
 {% endblock javascripts %}
 
 

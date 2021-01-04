@@ -19,4 +19,9 @@
 </div> <!-- Fin del Div principal -->
 
 {% endblock content %}
+{% block javascripts %}
+  {{ super()}}
+  <!-- Parsley -->
+<script src="{{ url_for('static', filename='js/escritorio.js') }}"></script>
 
+{% endblock javascripts %}

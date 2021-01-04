@@ -36,14 +36,14 @@ class NLPAction():
         self.df_tweets["Longitud"] = self.df_tweets["Tweet"].str.len()
         self.df_tweets["Palabras"] = self.df_tweets["Tweet"].str.split().str.len()
         self.df_tweets = self.df_tweets.drop(self.df_tweets.columns[0],axis="columns")
-        self.df_tweets.to_csv("app/redesSociales/twitter/static/docs/tweets_limpios.csv")
+        self.df_tweets.to_csv("app/nlp/static/docs/tweets_limpios.csv")
 
 
     def tokenizacion(self):
-        self.df_tweets["Procesado"] = self.df_tweets["clean_text"].str.lower().apply(
+        self.df_tweets["Tokenizado"] = self.df_tweets["Tweet_limpio"].str.lower().apply(
             self.process_token_tweet_es)
         self.df_tweets = self.df_tweets.drop(self.df_tweets.columns[0],axis="columns")
-        self.df_tweets.to_csv("app/redesSociales/twitter/static/docs/proceso_tokenizacion.csv")
+        self.df_tweets.to_csv("app/nlp/static/docs/proceso_tokenizacion.csv")
 
  
     """
@@ -94,23 +94,23 @@ class NLPAction():
         return tokenized
 
     def dame_dataframe(self):
-        file_tweets = "app/twitter/static/docs/" + self.fichero
+        file_tweets = "app/nlp/static/docs/" + self.fichero
         df_tweets = pd.read_csv(file_tweets, parse_dates =["fecha"])
         return df_tweets
 
 
     def palabras_frecuentes(self):
        
-        file_tweets = "app/redesSociales/twitter/static/docs/proceso_tokenizacion.csv"
+        file_tweets = "app/nlp/static/docs/proceso_tokenizacion.csv"
 
         df_tweets = pd.read_csv(file_tweets, parse_dates =["fecha"])
 
         
         stops =  set(stopwords.words('spanish')+['com'])
         co = CountVectorizer(stop_words=stops)
-        counts = co.fit_transform(df_tweets.clean_text)
+        counts = co.fit_transform(df_tweets.Tweet_limpio)
         df_palabras = pd.DataFrame(counts.sum(axis=0),columns=co.get_feature_names()).T.sort_values(0,ascending=False).head(50)
-        df_palabras.to_csv("app/redesSociales/twitter/static/docs/palabras_frecuentes.csv")
+        df_palabras.to_csv("app/nlp/static/docs/palabras_frecuentes.csv")
 
         self.pareja_palabras(df_tweets,stops)
         self.sacar_hashtag(df_tweets)
@@ -121,7 +121,7 @@ class NLPAction():
         co = CountVectorizer(ngram_range=(2,2),stop_words=stops)
         counts = co.fit_transform(df_tweets.clean_text)
         df_palabras =pd.DataFrame(counts.sum(axis=0),columns=co.get_feature_names()).T.sort_values(0,ascending=False).head(50)
-        df_palabras.to_csv("app/redesSociales/twitter/static/docs/pareja_palabras_frecuentes.csv")
+        df_palabras.to_csv("app/nlp/static/docs/pareja_palabras_frecuentes.csv")
     
     def sacar_hashtag(self,df_tweets):
        
