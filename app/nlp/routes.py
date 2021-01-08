@@ -1,7 +1,7 @@
 from flask import render_template, request,jsonify
 from app.nlp import blueprint
 from app.nlp.action.nlpAction import NLPAction
-from app.nlp.action.analisisSentimientos import AnalisisSentimientos
+from app.nlp.action.analisisSentimientos import AnalisisSentimientos,AnalisisSentiemientosVader
 from app.mongodb.action.mongoAction import TweetCollection
 import pandas as pd
 import json 
@@ -104,3 +104,23 @@ def route_analisis_sentiemientos_tweets():
 
     return render_template("analisisSentimientos.html", table_analisis=table_analisis)
 
+@blueprint.route("/analisisSentimientosTweetVader")
+def route_analisis_sentiemientos_vader():
+
+    file_tweets = "app/nlp/static/docs/tweets_analisis_sentimientosVader.csv"
+    if path.exists(file_tweets):
+        df_tweets = pd.read_csv(file_tweets, parse_dates =["fecha"])
+        df_tweets = df_tweets.drop(df_tweets.columns[[0]], axis='columns')
+
+    else:
+
+        analisis = AnalisisSentiemientosVader()
+        df_tweets = analisis.polaridad()
+
+    df_show = df_tweets.head(50)
+    fig = go.Figure(data=[go.Table(header=dict(values=['Tweet','AnalisisVader'],
+                fill_color='paleturquoise',align='left'),cells=dict(values=[df_show['Tweet'],
+                df_show['AnalisisVader']],fill_color='lavender',align='left'))])
+    table_analisis = json.dumps(fig,cls=plotly.utils.PlotlyJSONEncoder)
+
+    return render_template("analisisSentimientosVader.html", table_analisis=table_analisis)
