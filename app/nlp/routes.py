@@ -124,3 +124,11 @@ def route_analisis_sentiemientos_vader():
     table_analisis = json.dumps(fig,cls=plotly.utils.PlotlyJSONEncoder)
 
     return render_template("analisisSentimientosVader.html", table_analisis=table_analisis)
+
+@blueprint.route("/topics")
+def route_topics():
+    return render_template("topicsTweet.html")
+
+@blueprint.route("/wordCloud")
+def route_wordCloud():
+    return render_template("wordCloudTweet.html")

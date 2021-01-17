@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="right_col" role="main">
+    <div class="">
+      <div class="page-title">
+        <div class="title_left">
+          <h3><i class="fa fa-twitter"></i>Nube de Palabras</h3>
+        </div>
+  
+      </div>
+      <div class="clearfix"></div>
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>WordCloud <small> Tweets</small></h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+               
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div id="plotly-token"></div>
+              <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+              <script type="text/javascript">
+                    
+                var graphs = {{table_token | safe}};
+                Plotly.plot('plotly-token', graphs, {});
+                    
+        
+            </script>
+            </div>
+            </div>
+            </div>
+            </div>
+   </div>
+  </div>
+{% endblock content %}
+
+{% block javascripts %}
+  {{ super()}}
+  <!-- Parsley -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+{% endblock javascripts %}
+
+
+
+
