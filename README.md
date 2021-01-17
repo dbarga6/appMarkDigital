@@ -2,8 +2,8 @@
 
 ## INDICE
 1. [Descripción](#Descripción)
-2. [Lenguaje](#Lenguaje y Tecnologías)
-3. [Instalaccion](#Instalaccion)
+2. [Lenguaje](#Lenguaje)
+3. [Instalación](#Instalación)
 4. [FAQs](#faqs)
 
 
@@ -20,24 +20,27 @@ Estudio que consistirá en el análisis de sentimientos de dichos Tweets así co
 También se realizará un modelado por temas de los tweets obtenidos. 
 
 
-## Lenguaje y Tecnologías
+## Lenguaje
 
-La aplicación se ha realizado en lengua de programación Python[1], debido a su gran auge en la actualidad, la sencillez de uso del lenguaje y porque es uno de los lenguajes que más se usan en Big Data & Business Analytics. 
+La aplicación se ha realizado en lengua de programación [Python](https://www.python.org/), debido a su gran auge en la actualidad, la sencillez de uso del lenguaje y porque es uno de los lenguajes que más se usan en Big Data & Business Analytics. 
 Al tratarse de una aplicación web, existe código desarrollado en JavaScript y HTML.
 	Librerías de Python utilizadas en el desarrollo del proyecto:
 
 -	[Flask](https://www.python.org/): microframework escrito en Python, que facilita la creación de aplicaciones web bajo el patrón MVC. (Modelo, Vista y Controlador)
 -	[Tweepy](https://www.tweepy.org/): Librería para una fácil conexión y uso de la API de Twitter.
--	Pymongo[7]: Librería para la conexión y uso de la base de datos MongoDB.
--	NLTK[13]: Kit de herramientas de lenguaje natural. Conjunto de librerías y programas para el procesamiento del lenguaje natural. 
--	Wordcloud[10]: Librería para la generación visual de nubes de palabras.
--	Pandas: Librería que proporciona estructura de datos y herramientas de análisis de datos fáciles de usar. 
--	Textblob [9]: Librería para el proceso de datos textuales. Proporciona una API para las tareas comunes de procesamiento de lenguaje natural (PLN o NLP)
--	Sklearn [17]: librería de aprendizaje automático de software libre. Cuenta con varios algoritmos de clasificación, regresión y clustering. 
--	Seaborn [18]: Librería basada en Matplotlib. Sirve para la parte visual del estudio de datos, permitiendo dibujar gráficos estadísticos. 
--	Plotly [12]: Librería para la visualización de gráficos, usada dentro de la aplicación web, por su fácil integración con Flask.
--	Matplotlib [14]:  Liberia de gráficos en 2D. 
+-	[Pymongo](https://pymongo.readthedocs.io/en/stable/): Librería para la conexión y uso de la base de datos MongoDB.
+-	[NLTK](https://www.nltk.org/): Kit de herramientas de lenguaje natural. Conjunto de librerías y programas para el procesamiento del lenguaje natural. 
+-	Wordcloud: Librería para la generación visual de nubes de palabras.
+-	[Pandas](): Librería que proporciona estructura de datos y herramientas de análisis de datos fáciles de usar. 
+-	[Textblob](https://textblob.readthedocs.io/en/dev/): Librería para el proceso de datos textuales. Proporciona una API para las tareas comunes de procesamiento de lenguaje natural (PLN o NLP)
+-	[Sklearn](https://scikit-learn.org/stable/): librería de aprendizaje automático de software libre. Cuenta con varios algoritmos de clasificación, regresión y clustering. 
+-	[Seaborn](https://seaborn.pydata.org/): Librería basada en Matplotlib. Sirve para la parte visual del estudio de datos, permitiendo dibujar gráficos estadísticos. 
+-	[Plotly](https://plotly.com/): Librería para la visualización de gráficos, usada dentro de la aplicación web, por su fácil integración con Flask.
+-	[Matplotlib](https://matplotlib.org/):  Liberia de gráficos en 2D. 
 
 
+## Instalación
 
 ## Faqs
+¿ En que fase se encuentra la aplicación?
+- La aplicación se ha creado como proyecto fin de Master. No esta en proceso de cambio y mejoras. 
