@@ -38,6 +38,8 @@ Al tratarse de una aplicación web, existe código desarrollado en JavaScript y 
 -	[Plotly](https://plotly.com/): Librería para la visualización de gráficos, usada dentro de la aplicación web, por su fácil integración con Flask.
 -	[Matplotlib](https://matplotlib.org/):  Liberia de gráficos en 2D. 
 
+La aplicación se ha creado utillizando el microframework Flask y con la popular y gratuita plantilla de aplicación web [Gentelella Admin](https://colorlib.com/polygon/gentelella/). 
+
 
 ## Instalación
 
