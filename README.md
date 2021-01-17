@@ -1,15 +1,14 @@
 # Estudio de Redes para Marketing Digital
 
 ## INDICE
-1. [Descripcion](#Descripcion)
-2. [Lenguaje](#Lenguaje)
-3. [Tecnologias]
+1. [Descripción](#Descripción)
+2. [Lenguaje](#Lenguaje y Tecnologías)
 3. [Instalaccion](#Instalaccion)
-5. [FAQs](#faqs)
+4. [FAQs](#faqs)
 
 
 
-## Descripcion
+## Descripción
 
 Aplicación para el estudio de las redes sociales en el ámbito de Marketing digital, aportando la potencia de Big Data y el Análisis de Sentimientos mediante el estudio de Proceso de Lenguaje Natural.
 
@@ -21,14 +20,14 @@ Estudio que consistirá en el análisis de sentimientos de dichos Tweets así co
 También se realizará un modelado por temas de los tweets obtenidos. 
 
 
-## Lenguaje y Tecnologias
+## Lenguaje y Tecnologías
 
 La aplicación se ha realizado en lengua de programación Python[1], debido a su gran auge en la actualidad, la sencillez de uso del lenguaje y porque es uno de los lenguajes que más se usan en Big Data & Business Analytics. 
 Al tratarse de una aplicación web, existe código desarrollado en JavaScript y HTML.
 	Librerías de Python utilizadas en el desarrollo del proyecto:
 
--	Flask[2]: microframework escrito en Python, que facilita la creación de aplicaciones web bajo el patrón MVC. (Modelo, Vista y Controlador)
--	Tweepy[16]: Librería para una fácil conexión y uso de la API de Twitter.
+-	[Flask](https://www.python.org/): microframework escrito en Python, que facilita la creación de aplicaciones web bajo el patrón MVC. (Modelo, Vista y Controlador)
+-	[Tweepy](https://www.tweepy.org/): Librería para una fácil conexión y uso de la API de Twitter.
 -	Pymongo[7]: Librería para la conexión y uso de la base de datos MongoDB.
 -	NLTK[13]: Kit de herramientas de lenguaje natural. Conjunto de librerías y programas para el procesamiento del lenguaje natural. 
 -	Wordcloud[10]: Librería para la generación visual de nubes de palabras.
