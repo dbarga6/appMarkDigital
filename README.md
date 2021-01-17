@@ -31,7 +31,7 @@ Al tratarse de una aplicación web, existe código desarrollado en JavaScript y 
 -	[Pymongo](https://pymongo.readthedocs.io/en/stable/): Librería para la conexión y uso de la base de datos MongoDB.
 -	[NLTK](https://www.nltk.org/): Kit de herramientas de lenguaje natural. Conjunto de librerías y programas para el procesamiento del lenguaje natural. 
 -	Wordcloud: Librería para la generación visual de nubes de palabras.
--	[Pandas](): Librería que proporciona estructura de datos y herramientas de análisis de datos fáciles de usar. 
+-	[Pandas](https://pandas.pydata.org/): Librería que proporciona estructura de datos y herramientas de análisis de datos fáciles de usar. 
 -	[Textblob](https://textblob.readthedocs.io/en/dev/): Librería para el proceso de datos textuales. Proporciona una API para las tareas comunes de procesamiento de lenguaje natural (PLN o NLP)
 -	[Sklearn](https://scikit-learn.org/stable/): librería de aprendizaje automático de software libre. Cuenta con varios algoritmos de clasificación, regresión y clustering. 
 -	[Seaborn](https://seaborn.pydata.org/): Librería basada en Matplotlib. Sirve para la parte visual del estudio de datos, permitiendo dibujar gráficos estadísticos. 
@@ -43,4 +43,4 @@ Al tratarse de una aplicación web, existe código desarrollado en JavaScript y 
 
 ## Faqs
 ¿ En que fase se encuentra la aplicación?
-- La aplicación se ha creado como proyecto fin de Master. No esta en proceso de cambio y mejoras. 
+- La aplicación se ha creado como proyecto fin de Master. Esta en proceso de cambio y mejoras. 
