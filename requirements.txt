@@ -3,6 +3,7 @@ flask
 flask_migrate
 flask_wtf
 flask_sqlalchemy
+flask_login
 tweepy
 pymongo[srv]
 nltk
