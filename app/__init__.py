@@ -32,7 +32,7 @@ def configure_database(app):
      app
 """
 def register_blueprints(app):
-    for module_name in ('base', 'mongodb','nlp','twitter'):
+    for module_name in ('base', 'mongodb','nlp','twitter','login'):
         module = import_module('app.{}.routes'.format(module_name))
         app.register_blueprint(module.blueprint)
 
