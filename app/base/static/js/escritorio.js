@@ -15,6 +15,7 @@ $(function () {
   }
 
   $("button#CargarTweets").bind("click", function () {
+    alert("dentro");
     
     $.getJSON(
        "/twitter/cargarTweetsTweepy",

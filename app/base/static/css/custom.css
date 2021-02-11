@@ -3413,6 +3413,7 @@ a.hiddenanchor {
     margin-top: 5%;
     max-width: 350px;
     position: relative
+   
 }
 .registration_form,
 .login_form {
@@ -3484,7 +3485,8 @@ form:after {
     position: relative;
     text-align: center;
     text-shadow: 0 1px 0 #fff;
-    min-width: 280px
+    min-width: 280px;
+    
 }
 .login_content a,
 .login_content .btn-default:hover {

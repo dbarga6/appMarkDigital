@@ -4,7 +4,12 @@ import pandas as pd
 import os
 import os.path as path
 from app.mongodb.action.mongoAction import TweetCollection
-
+from flask_login import (
+    current_user,
+    login_required,
+    login_user,
+    logout_user
+)
 
 
 """
@@ -38,8 +43,12 @@ class TweepyAction():
     def cargar_tweets(self, filtro, maximo,fecha_hasta):
       
         mongo = TweetCollection()
-        tweetCollection = mongo.getAparcamientoTabla()
+        user = current_user.username
+        print(">>>>>>>> usuario",user)
+        tweetCollection = mongo.getCargaInicial(user)
+        #tweetCollection = mongo.getAparcamientoTabla()
         userCollection = mongo.getUserTabla()
+        print(">>>>>>>> estoy dentro")
 
         try:
             for tweet in tweepy.Cursor(self.api.search,

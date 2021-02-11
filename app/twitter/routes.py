@@ -18,14 +18,14 @@ def mostrar_formulario_carga():
 
 @blueprint.route("/cargarTweetsTweepy", methods=['GET', 'POST'])
 def cargar_tweets_tweepy():
-    
+    print(">>>>>>>>> dentro")
     search = request.args.get('search')
     maximo = request.args.get('maximo')    
     fecha_hasta = request.args.get('fecha_hasta')
     
 
     msg = "Es obligatorio que introduzca un filtro de búsqueda y un número máximo de Tweets a cargar"
-
+    print(">>>>>>>>> buscando")
     if search is not None and maximo is not None:
         tweepy = TweepyAction()
         tweepy.cargar_tweets(search,int(maximo),fecha_hasta)

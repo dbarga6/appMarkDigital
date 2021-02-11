@@ -58,6 +58,10 @@ class MongodbAction():
 
 class TweetCollection(MongodbAction):
 
+    def getCargaInicial(self,user):
+        ruta = "self.database." + user  + "cargainicial"
+        return eval(ruta)
+
     def getUserTabla(self):
         return self.database.UserCollection
 
